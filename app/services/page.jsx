@@ -4,30 +4,30 @@ const Services = () => {
   const services = [
     {
       num: "01",
-      title: "Full Stack Web Development",
+      title: "Backend & API Architecture",
       description:
-        "End-to-end development of dynamic, robust web applications using Next.js, React, Node.js, Express, and MongoDB or PostgreSQL.",
+        "Architecting scalable server-side applications, microservices, and high-performance RESTful & GraphQL APIs using Node.js, Express, NestJS, and TypeScript.",
       url: "/contact",
     },
     {
       num: "02",
-      title: "Front-End Architecture",
+      title: "Database Design & ORM Modeling",
       description:
-        "Translating Figma designs into responsive, pixel-perfect, and accessible user interfaces with React, Next.js, and modern Tailwind CSS.",
+        "Designing relational (PostgreSQL) and NoSQL (MongoDB) schemas, query optimization, Prisma ORM integration, indexing, and Redis caching layers.",
       url: "/contact",
     },
     {
       num: "03",
-      title: "RESTful API & Database Design",
+      title: "Full Stack Web Development",
       description:
-        "Building secure, scalable backend architectures, authentication systems (JWT, OAuth), and database schemas with MongoDB and Prisma.",
+        "Delivering complete, end-to-end web applications by connecting rock-solid backend microservices with dynamic Next.js and React user interfaces.",
       url: "/contact",
     },
     {
       num: "04",
-      title: "Performance & SEO Optimization",
+      title: "Authentication, Security & Docker",
       description:
-        "Optimizing Core Web Vitals, server-side rendering (SSR), static site generation (SSG), and technical SEO to maximize visibility and speed.",
+        "Implementing secure JWT / OAuth2 authentication, role-based access control (RBAC), API rate-limiting, and Docker containerized deployments.",
       url: "/contact",
     },
   ];

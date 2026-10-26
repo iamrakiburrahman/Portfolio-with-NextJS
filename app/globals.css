@@ -4,16 +4,16 @@
   
 @layer base {
     body {
-        @apply font-primary bg-primary text-white leading-loose;
+        @apply font-primary bg-primary text-white leading-relaxed antialiased;
     }
     .h1 {
-        @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+        @apply text-[36px] sm:text-[48px] xl:text-[62px] leading-[1.15] font-extrabold tracking-tight;
     }
     .h2 {
-        @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+        @apply text-[30px] xl:text-[40px] leading-[1.2] font-bold tracking-tight;
     }
     .h3 {
-        @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+        @apply text-[20px] xl:text-[24px] leading-[1.2] font-semibold;
     }
     
     .text-outline {

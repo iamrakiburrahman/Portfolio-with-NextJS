@@ -16,7 +16,7 @@ const Home = () => {
           {/* text */}
           <div className='text-center xl:text-left order-2 xl:order-none'>
             {/* Live Availability Badge */}
-            <div className='inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm mb-5'>
+            <div className='inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm mb-4'>
               <span className='relative flex h-2.5 w-2.5'>
                 <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75'></span>
                 <span className='relative inline-flex rounded-full h-2.5 w-2.5 bg-accent'></span>
@@ -24,34 +24,52 @@ const Home = () => {
               <span className='font-mono text-xs uppercase tracking-wider font-semibold'>Available for Hire & Projects</span>
             </div>
 
-            <span className='block text-3xl md:text-5xl font-extrabold text-white/90'>
-              Hello I&apos;m
-            </span>
-            <h1 className='text-4xl font-bold md:font-none md:h1 mb-6'>
-              <span className='text-accent'>Rakibur Rahman</span>
-              <br />
-              <TypeAnimation
-                sequence={[
-                  "Full Stack Developer",
-                  2000,
-                  "MERN Stack Specialist",
-                  2000,
-                  "Next.js & React Architect",
-                  2000,
-                  "UI/UX Enthusiast",
-                  1500,
-                ]}
-                speed={30}
-                style={{ fontSize: "0.8em", color: "#00ff99" }}
-                repeat={Infinity}
-                wrapper='span'
-                aria-label="Rakibur's professions including Full Stack Developer and React Specialist"
-              />
-            </h1>
+            <div className='mb-6'>
+              <span className='block text-lg md:text-xl font-medium text-white/60 mb-1 tracking-wide'>
+                Hello, I&apos;m
+              </span>
+              <h1 className='text-3xl sm:text-5xl xl:text-[56px] font-extrabold text-white tracking-tight leading-tight'>
+                Md. Rakibur <span className='text-accent'>Rahman</span>
+              </h1>
+              <div className='text-2xl sm:text-3xl xl:text-4xl font-bold text-accent min-h-[46px] flex items-center justify-center xl:justify-start gap-2 mt-2'>
+                <span className='text-white/70 font-normal text-xl sm:text-2xl'>A</span>
+                <TypeAnimation
+                  sequence={[
+                    "Backend Developer",
+                    2200,
+                    "Node.js & TypeScript Architect",
+                    2200,
+                    "REST & GraphQL API Specialist",
+                    2000,
+                    "Full Stack Engineer",
+                    2000,
+                    "Database & System Designer",
+                    2000,
+                  ]}
+                  speed={35}
+                  style={{ display: "inline-block" }}
+                  repeat={Infinity}
+                  wrapper='span'
+                  aria-label="Rakibur's professions including Backend Developer and TypeScript Architect"
+                />
+              </div>
+            </div>
 
-            <p className='max-w-[540px] mb-9 text-white/80 text-base leading-relaxed'>
-              I craft dynamic, high-performance web applications that bridge intuitive user experiences with solid backend architectures. Specializing in modern technologies including React, Next.js, Node.js, Express, MongoDB, and Tailwind CSS.
+            <p className='max-w-[540px] mb-5 text-white/75 text-base md:text-lg leading-relaxed'>
+              I specialize in architecting high-performance <span className='text-white font-semibold'>Backend Systems</span>, scalable RESTful & GraphQL APIs, and robust databases (PostgreSQL, MongoDB, Prisma, Redis). Delivering clean server-side logic coupled with seamless full-stack web applications.
             </p>
+
+            {/* Backend Tech Stack Quick Badges */}
+            <div className='flex flex-wrap gap-2 mb-8 justify-center xl:justify-start max-w-[540px]'>
+              {["Node.js", "Express", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "MongoDB", "Redis", "Docker"].map((tech) => (
+                <span
+                  key={tech}
+                  className='px-2.5 py-1 rounded-md bg-[#232329] border border-white/10 text-accent font-mono text-xs font-medium'
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
             {/* button and social */}
             <div className='flex flex-col xl:flex-row items-center gap-8'>
               <a

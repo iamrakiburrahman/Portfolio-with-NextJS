@@ -1,14 +1,20 @@
-// app/layout.js
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-jetBrainsMono",
+  display: "swap",
 });
 
 export const metadata = {
@@ -92,7 +98,7 @@ export default function RootLayout({ children }) {
         {/* Additional meta tags for browser compatibility */}
         <meta name='theme-color' content='#1c1c22' />
       </head>
-      <body className={`${jetBrainsMono.variable} min-h-screen flex flex-col justify-between`}>
+      <body className={`${inter.variable} ${jetBrainsMono.variable} font-primary min-h-screen flex flex-col justify-between`}>
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>

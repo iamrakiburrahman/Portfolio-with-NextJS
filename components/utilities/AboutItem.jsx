@@ -1,11 +1,19 @@
 const about = {
   title: "About Me",
   description:
-    "I am Md. Rakibur Rahman, a passionate Full Stack & MERN Developer who creates clean, fast, and scalable digital products. With strong foundations in modern web frameworks, clean architecture, and responsive UX design, I turn complex problems into elegant web solutions.",
+    "I am Md. Rakibur Rahman, a dedicated Backend & Full Stack Software Developer specialized in designing high-performance server architectures, RESTful & GraphQL APIs, microservices, and databases (PostgreSQL, MongoDB, Prisma, Redis). I bridge scalable backend engineering with modern frontend ecosystems to deliver secure, resilient, and end-to-end web solutions.",
   information: [
     {
       fieldName: "Name",
       fieldValue: "Md. Rakibur Rahman",
+    },
+    {
+      fieldName: "Primary Focus",
+      fieldValue: "Backend & Full Stack",
+    },
+    {
+      fieldName: "Core Stack",
+      fieldValue: "Node, NestJS, TS, Postgres, Prisma",
     },
     {
       fieldName: "Experience",
@@ -25,15 +33,7 @@ const about = {
     },
     {
       fieldName: "Availability",
-      fieldValue: "Open for Opportunities",
-    },
-    {
-      fieldName: "Nationality",
-      fieldValue: "Bangladeshi",
-    },
-    {
-      fieldName: "Languages",
-      fieldValue: "English, Bengali",
+      fieldValue: "Available for Hire",
     },
   ],
 };
