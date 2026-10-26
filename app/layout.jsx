@@ -46,6 +46,8 @@ export const metadata = {
   },
 };
 
+import Footer from "@/components/Footer";
+
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
@@ -76,7 +78,7 @@ export default function RootLayout({ children }) {
           content='https://rakiburrahman307.netlify.app'
         />
         <meta property='og:type' content='website' />
-        <meta property='og:Rakibur Rahman' content='Rakibur Rahman Portfolio' />
+        <meta property='og:site_name' content='Rakibur Rahman Portfolio' />
         {/* Twitter */}
         <meta name='twitter:title' content='Rakibur Rahman | Portfolio' />
         <meta
@@ -86,21 +88,15 @@ export default function RootLayout({ children }) {
         {/* Favicon */}
         <link rel='icon' href='/r_logo.png' />
         {/* Manifest */}
-        <link rel='manifest' href='/site.webmanifest' />
-        <link
-          rel='preload'
-          href='https://rakiburrahman307.netlify.app'
-          as='font'
-          type='font/woff2'
-          crossorigin='anonymous'
-        />
+        <link rel='manifest' href='/manifest.json' />
         {/* Additional meta tags for browser compatibility */}
-        <meta name='theme-color' content='#ffffff' />
+        <meta name='theme-color' content='#1c1c22' />
       </head>
-      <body className={jetBrainsMono.variable}>
+      <body className={`${jetBrainsMono.variable} min-h-screen flex flex-col justify-between`}>
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
+        <Footer />
       </body>
     </html>
   );

@@ -1,56 +1,48 @@
 "use client";
 import ServiceItem from "@/components/utilities/ServiceItem";
-import Head from "next/head";
-
 const Services = () => {
   const services = [
     {
       num: "01",
-      title: "Responsive Web Design",
+      title: "Full Stack Web Development",
       description:
-        "Ensuring websites are mobile-friendly and look good on all devices.",
-      url: "",
+        "End-to-end development of dynamic, robust web applications using Next.js, React, Node.js, Express, and MongoDB or PostgreSQL.",
+      url: "/contact",
     },
     {
       num: "02",
-      title: "Website Development",
+      title: "Front-End Architecture",
       description:
-        "Building custom websites using various technologies like HTML, CSS, JavaScript, and frameworks such as React.",
-      url: "",
+        "Translating Figma designs into responsive, pixel-perfect, and accessible user interfaces with React, Next.js, and modern Tailwind CSS.",
+      url: "/contact",
     },
     {
       num: "03",
-      title: "Front-End Development",
+      title: "RESTful API & Database Design",
       description:
-        "Focusing on the client side of web applications, working with HTML, CSS, JavaScript, and front-end frameworks like React.",
-      url: "",
+        "Building secure, scalable backend architectures, authentication systems (JWT, OAuth), and database schemas with MongoDB and Prisma.",
+      url: "/contact",
     },
     {
       num: "04",
-      title: "Back-End Development",
+      title: "Performance & SEO Optimization",
       description:
-        "Working on the server side, handling databases, APIs, and server logic using technologies like Node.js.",
-      url: "",
+        "Optimizing Core Web Vitals, server-side rendering (SSR), static site generation (SSG), and technical SEO to maximize visibility and speed.",
+      url: "/contact",
     },
   ];
   return (
-    <section className='min-h-[80vh] flex flex-col justify-center py-12 xl:py-0'>
-      {/* head for better seo  */}
-      <Head>
-        <title>Service - Rakibur Rahman</title>
-        <meta
-          name='description'
-          content='Details about Rakibur Rahman Service page.'
-        />
-        <meta property='og:title' content='Service - Rakibur Rahman' />
-        <meta
-          property='og:description'
-          content='Details about Rakibur Rahman Service page.'
-        />
-        <meta property='og:type' content='portfolio website' />
-      </Head>
+    <section className='min-h-[80vh] flex flex-col justify-center py-12 xl:py-6'>
       <div className='container mx-auto'>
-        <div className='grid grid-cols-1 xl:grid-cols-2 gap-[60px]'>
+        <div className='mb-12 text-center xl:text-left'>
+          <h1 className='text-4xl xl:text-5xl font-bold mb-4'>
+            Services I <span className='text-accent'>Provide</span>
+          </h1>
+          <p className='text-white/60 max-w-[600px]'>
+            Delivering high-standard software engineering solutions tailored to help businesses and startups grow.
+          </p>
+        </div>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-[30px]'>
           {services?.map((service, index) => (
             <ServiceItem
               key={index}

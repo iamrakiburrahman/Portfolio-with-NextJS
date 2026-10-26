@@ -13,27 +13,26 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderButton from "@/components/utilities/WorkSliderButton";
-import Head from "next/head";
 import easyMart from "../../assets/work/easyMart.png";
 import jobSwift from "../../assets/work/jobSwift.png";
 import newEra from "../../assets/work/newEra.png";
 import uniStayHub from "../../assets/work/uniStayHub.png";
 import weatherApp from "../../assets/work/weatherApp.png";
 
-// Mock data
+// Project data
 const workspace = [
   {
     num: "01",
     category: "MERN Stack",
-    title: "E-commerce",
+    title: "EasyMart E-commerce",
     description:
-      "This e-commerce platform is a fully functional, responsive, and dynamic web application built using the MERN stack (MongoDB, Express.js, React, and Node.js) with React Bootstrap for styling. The platform provides a seamless shopping experience for users and includes robust features for both customers and administrators.",
+      "A full-stack, responsive, and dynamic web application built using the MERN stack (MongoDB, Express.js, React, Node.js) with clean product cataloging, cart state management, checkout flows, and administrator product management.",
     stacks: [
-      { name: "JavaScript" },
       { name: "React" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "MongoDB" },
       { name: "Bootstrap" },
-      { name: "Express js" },
-      { name: "Nodejs" },
     ],
     image: easyMart,
     live: "https://easy-mart-ecommerce-final.netlify.app",
@@ -41,14 +40,15 @@ const workspace = [
   },
   {
     num: "02",
-    category: "Font-End",
-    title: "Weather App",
+    category: "Front-End",
+    title: "SkySnap Weather App",
     description:
-      "This modern weather application provides accurate and real-time weather data using the OpenWeatherAPI, delivering a sleek and intuitive user experience. Built with React and TypeScript, the app combines powerful tools like Chakra UI, Tailwind CSS, and Recharts to offer a responsive and visually appealing interface.",
+      "A modern weather dashboard that provides accurate, real-time meteorological forecasts using OpenWeatherAPI. Features dynamic weather illustrations, interactive charts, metric conversions, and a responsive interface.",
     stacks: [
       { name: "React" },
       { name: "TypeScript" },
       { name: "Tailwind CSS" },
+      { name: "Recharts" },
     ],
     image: weatherApp,
     live: "https://sky-snap-weather-app.netlify.app",
@@ -56,14 +56,15 @@ const workspace = [
   },
   {
     num: "03",
-    category: "Font-End",
+    category: "Front-End",
     title: "The New Era Consultancy",
     description:
-      "The New Era Consultancy website is a modern and professional platform designed to showcase the firm's expertise in providing guidance for studying, working, and traveling abroad. With a sleek and dynamic design, the website ensures a seamless user experience while reflecting the brand's core values of innovation and trust.",
+      "A sleek corporate portal engineered for an international education and career consultancy firm. Delivers intuitive navigation, country program guides, application inquiry workflows, and high performance.",
     stacks: [
       { name: "React" },
       { name: "React Router" },
       { name: "Tailwind CSS" },
+      { name: "Framer Motion" },
     ],
     image: newEra,
     live: "https://consultancynewera.com",
@@ -72,17 +73,16 @@ const workspace = [
   {
     num: "04",
     category: "MERN Stack",
-    title: "Unity Hub",
+    title: "UniStayHub Hostel Management",
     description:
-      "Unity Hub Hostel Management System is a modern web application designed to streamline and automate hostel management operations. This system caters to hostel administrators, residents, and staff, providing features for managing bookings, payments, resident records, and announcements. The application prioritizes user-friendliness, security, and scalability to serve hostels of all sizes.",
+      "A comprehensive hostel and accommodation management web system designed to streamline booking, room allocation, fee collection, resident registries, and announcements for university students and administrators.",
     stacks: [
       { name: "React.js" },
       { name: "Tailwind CSS" },
-      { name: "Firebase" },
+      { name: "Firebase Auth" },
       { name: "MongoDB" },
       { name: "Node.js" },
     ],
-
     image: uniStayHub,
     live: "https://unistayhub-hostel-manegement.netlify.app",
     github:
@@ -91,15 +91,15 @@ const workspace = [
   {
     num: "05",
     category: "MERN Stack",
-    title: "Job Swift",
+    title: "Job Swift Career Portal",
     description:
-      "Job Swift is an online platform dedicated to connecting job seekers with a wide range of employment opportunities. Whether you're a seasoned professional looking for your next career move or a recent graduate eager to kickstart your professional journey, Job Swift has something for everyone.",
+      "A recruitment platform connecting job seekers with prospective employers. Includes applicant tracking, job listings with filters, resume submission, and administrative dashboards.",
     stacks: [
       { name: "React.js" },
       { name: "Tailwind CSS" },
       { name: "Firebase" },
       { name: "MongoDB" },
-      { name: "Node.js" },
+      { name: "Express.js" },
     ],
     image: jobSwift,
     live: "https://job-swift-expolorejobs-managements.netlify.app",
@@ -110,7 +110,6 @@ const workspace = [
 const Work = () => {
   const [project, setProject] = useState(workspace[0]);
 
-  // Use useCallback to memoize the event handler
   const handleSlideChange = useCallback((slider) => {
     const currentIdx = slider.activeIndex;
     setProject(workspace[currentIdx]);
@@ -121,51 +120,52 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.2, duration: 0.5, ease: "easeIn" },
       }}
       className='min-h-[80vh] flex flex-col justify-center py-12 xl:px-0'
     >
-      {/* head for better seo  */}
-      <Head>
-        <title>Work - Rakibur Rahman</title>
-      </Head>
       <div className='container mx-auto'>
-        <div className='flex flex-col xl:flex-row xl:gap-[30px]'>
+        <div className='flex flex-col xl:flex-row xl:gap-[40px]'>
           <div className='w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none'>
-            <div className='flex flex-col gap-[30px] h-[50%]'>
+            <div className='flex flex-col gap-[20px]'>
               {/* Outline number */}
               <div className='text-8xl leading-none font-extrabold text-transparent text-outline'>
                 {project?.num}
               </div>
               {/* Category */}
-              <h2 className='text-[42px] leading-none font-bold text-white group-hover:text-accent transition-all duration-500 capitalize'>
-                {project?.category} Project
+              <h2 className='text-[36px] xl:text-[42px] leading-tight font-bold text-white group-hover:text-accent transition-all duration-500 capitalize'>
+                {project?.title}
               </h2>
+              <span className='text-accent text-sm font-semibold tracking-wider uppercase'>
+                {project?.category}
+              </span>
               {/* Description */}
-              <p className='text-white/60'>{project?.description}</p>
-              {/* Stack */}
-              <ul className='flex gap-4'>
+              <p className='text-white/60 leading-relaxed text-sm xl:text-base'>{project?.description}</p>
+              {/* Stack badges */}
+              <div className='flex flex-wrap gap-2 pt-2'>
                 {project?.stacks?.map((stack, idx) => (
-                  <li key={idx} className='text-xl text-accent'>
+                  <span
+                    key={idx}
+                    className='px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs xl:text-sm font-medium'
+                  >
                     {stack?.name}
-                    {idx !== project?.stacks?.length - 1 && ","}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
               {/* Border */}
-              <div className='border border-white/20'></div>
-              {/* Buttons */}
+              <div className='border-b border-white/10 my-2'></div>
+              {/* Action Buttons */}
               <div className='flex items-center gap-4'>
                 {/* Live project button */}
                 <Link href={project?.live} passHref target='_blank'>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className='w-[78px] h-[78px] rounded-full bg-white/5 flex justify-center items-center group'>
-                        <BsArrowUpRight className='text-white text-3xl group-hover:text-accent' />
+                      <TooltipTrigger className='w-[64px] h-[64px] rounded-full bg-white/5 border border-white/10 hover:border-accent hover:bg-accent/10 flex justify-center items-center group transition-all duration-300'>
+                        <BsArrowUpRight className='text-white text-2xl group-hover:text-accent transition-colors' />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className='px-6 py-3 font-semibold rounded-md'>
-                          Live Demo
+                        <p className='px-4 py-2 font-semibold text-xs'>
+                          Live Preview
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -175,12 +175,12 @@ const Work = () => {
                 <Link href={project?.github} passHref target='_blank'>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className='w-[78px] h-[78px] rounded-full bg-white/5 flex justify-center items-center group'>
-                        <BsGithub className='text-white text-3xl group-hover:text-accent' />
+                      <TooltipTrigger className='w-[64px] h-[64px] rounded-full bg-white/5 border border-white/10 hover:border-accent hover:bg-accent/10 flex justify-center items-center group transition-all duration-300'>
+                        <BsGithub className='text-white text-2xl group-hover:text-accent transition-colors' />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className='px-6 py-3 font-semibold rounded-md'>
-                          GitHub Repository
+                        <p className='px-4 py-2 font-semibold text-xs'>
+                          Source Code
                         </p>
                       </TooltipContent>
                     </Tooltip>
@@ -193,22 +193,22 @@ const Work = () => {
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
-              className='xl:h-[520px] mb-12'
+              className='xl:h-[480px] mb-12'
               onSlideChange={handleSlideChange}
             >
               {workspace?.map((work, idx) => (
                 <SwiperSlide key={idx} className='w-full'>
-                  <div className='h-[460px] relative group flex justify-center items-center bg-pink-50/20'>
-                    {/* Overlay */}
-                    <div className='absolute top-0 bottom-0 w-full h-full bg-black/10 z-10'></div>
-                    {/* Image */}
+                  <div className='h-[380px] xl:h-[440px] relative group flex justify-center items-center bg-[#232329] border border-white/10 rounded-2xl overflow-hidden shadow-2xl'>
+                    {/* Gradient Overlay */}
+                    <div className='absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent z-10'></div>
+                    {/* Project Screenshot */}
                     <div className='relative w-full h-full'>
                       <Image
                         src={work?.image}
                         fill
                         alt={work?.title}
-                        className='object-fill'
-                        priority={idx === 0} // Load first image with priority
+                        className='object-cover object-top group-hover:scale-105 transition-transform duration-500'
+                        priority={idx === 0}
                       />
                     </div>
                   </div>
@@ -216,8 +216,8 @@ const Work = () => {
               ))}
               <WorkSliderButton
                 containerStyles='flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none'
-                buttonStyles='bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all duration-300'
-                iconStyles='text-black/80'
+                buttonStyles='bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] rounded-lg flex justify-center items-center transition-all duration-300'
+                iconStyles='text-primary font-bold'
               />
             </Swiper>
           </div>

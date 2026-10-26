@@ -15,56 +15,65 @@ const Home = () => {
         <div className='flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24'>
           {/* text */}
           <div className='text-center xl:text-left order-2 xl:order-none'>
-            <span className='text-3xl md:text-5xl font-extrabold'>
+            {/* Live Availability Badge */}
+            <div className='inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm mb-5'>
+              <span className='relative flex h-2.5 w-2.5'>
+                <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75'></span>
+                <span className='relative inline-flex rounded-full h-2.5 w-2.5 bg-accent'></span>
+              </span>
+              <span className='font-mono text-xs uppercase tracking-wider font-semibold'>Available for Hire & Projects</span>
+            </div>
+
+            <span className='block text-3xl md:text-5xl font-extrabold text-white/90'>
               Hello I&apos;m
             </span>
             <h1 className='text-4xl font-bold md:font-none md:h1 mb-6'>
               <span className='text-accent'>Rakibur Rahman</span>
               <br />
               <TypeAnimation
-                sequence={["Web Developer", 1500, "Web Designer", 1000]}
+                sequence={[
+                  "Full Stack Developer",
+                  2000,
+                  "MERN Stack Specialist",
+                  2000,
+                  "Next.js & React Architect",
+                  2000,
+                  "UI/UX Enthusiast",
+                  1500,
+                ]}
                 speed={30}
                 style={{ fontSize: "0.8em", color: "#00ff99" }}
                 repeat={Infinity}
                 wrapper='span'
-                aria-label="Rakibur's professions including Web Developer and Web Designer"
+                aria-label="Rakibur's professions including Full Stack Developer and React Specialist"
               />
             </h1>
 
-            <p className='max-w-[500px] mb-9 text-white/80'>
-              I am a web developer who creates and maintains websites, ensuring
-              they are visually appealing, functional, and responsive across
-              devices. I work on both the front-end and back-end, using coding
-              languages like HTML, CSS, JavaScript, and React to deliver smooth
-              online experiences.
+            <p className='max-w-[540px] mb-9 text-white/80 text-base leading-relaxed'>
+              I craft dynamic, high-performance web applications that bridge intuitive user experiences with solid backend architectures. Specializing in modern technologies including React, Next.js, Node.js, Express, MongoDB, and Tailwind CSS.
             </p>
             {/* button and social */}
             <div className='flex flex-col xl:flex-row items-center gap-8'>
-              <Button
-                variant='outline'
-                size='lg'
-                className='uppercase flex items-center gap-2'
-                aria-label='Download CV of Rakibur Rahman'
-                onClick={(e) => {
-                  if (!resume) {
-                    e.preventDefault();
-                    alert("CV not available at the moment.");
-                  } else {
-                    const link = document.createElement("a");
-                    link.href = resume; // Ensure this is the correct file path
-                    link.download = "resume.pdf";
-                    link.click();
-                  }
-                }}
+              <a
+                href={resume}
+                download='Rakibur_Rahman_CV.pdf'
+                className='inline-block'
               >
-                <span>Download CV</span>
-                <FiDownload className='text-xl' />
-              </Button>
+                <Button
+                  variant='outline'
+                  size='lg'
+                  className='uppercase flex items-center gap-2 hover:bg-accent hover:text-primary transition-all duration-300'
+                  aria-label='Download CV of Rakibur Rahman'
+                >
+                  <span>Download CV</span>
+                  <FiDownload className='text-xl' />
+                </Button>
+              </a>
 
               <div className='mb-8 xl:mb-0'>
                 <Social
                   containerStyles='flex gap-6'
-                  iconStyles='w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500'
+                  iconStyles='w-10 h-10 border border-accent/40 rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:border-accent hover:transition-all duration-300'
                 />
               </div>
             </div>

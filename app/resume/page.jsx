@@ -1,34 +1,10 @@
 "use client";
 import { Tabs, TabsContent, TabsTrigger, TabsList } from "@/components/ui/tabs";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import Loading from "@/components/utilities/Loading";
-import Head from "next/head";
-const ExperienceItem = dynamic(
-  () => import("@/components/utilities/ExperienceItem"),
-  {
-    loading: () => <Loading name='Experience' />,
-    ssr: false,
-  }
-);
-
-const EducationItem = dynamic(
-  () => import("@/components/utilities/EducationItem"),
-  {
-    loading: () => <Loading name='Education' />,
-    ssr: false,
-  }
-);
-
-const SkillsItem = dynamic(() => import("@/components/utilities/SkillsItem"), {
-  loading: () => <Loading name='Skills' />,
-  ssr: false,
-});
-
-const AboutItem = dynamic(() => import("@/components/utilities/AboutItem"), {
-  loading: () => <Loading name='About Me' />,
-  ssr: false,
-});
+import ExperienceItem from "@/components/utilities/ExperienceItem";
+import EducationItem from "@/components/utilities/EducationItem";
+import SkillsItem from "@/components/utilities/SkillsItem";
+import AboutItem from "@/components/utilities/AboutItem";
 
 const Resume = () => {
   return (
@@ -36,15 +12,10 @@ const Resume = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 1, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.2, duration: 0.5, ease: "easeIn" },
       }}
-      className='min-h-[80vh] flex item-center justify-center py-12 xl:py-0'
+      className='min-h-[80vh] flex items-center justify-center py-12 xl:py-4'
     >
-      {/* head for better seo  */}
-      <Head>
-        <title>Resume - Rakibur Rahman</title>
-        <meta property='og:type' content='portfolio website' />
-      </Head>
       <div className='container mx-auto'>
         <Tabs
           defaultValue='experience'
