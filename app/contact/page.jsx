@@ -169,10 +169,14 @@ const Contact = () => {
                       type='button'
                       variant='outline'
                       onClick={handleCopyEmail}
-                      className='h-[50px] px-6 rounded-xl flex items-center gap-2 border-white/20 hover:border-accent font-semibold text-sm'
+                      className={`h-[50px] min-w-[200px] px-6 rounded-xl flex items-center justify-center gap-2 font-semibold text-sm transition-all duration-300 ${
+                        copied
+                          ? "bg-accent text-primary border-accent shadow-md shadow-accent/20"
+                          : "border-white/20 text-white hover:border-accent"
+                      }`}
                     >
-                      {copied ? <FaCheck className='text-accent' /> : <FaCopy />}
-                      <span>{copied ? "Copied Email!" : "Copy Email Address"}</span>
+                      {copied ? <FaCheck className='text-primary text-sm' /> : <FaCopy className='text-sm' />}
+                      <span>{copied ? "Email Copied!" : "Copy Email Address"}</span>
                     </Button>
                     <Button
                       type='button'
@@ -303,7 +307,7 @@ const Contact = () => {
           </div>
 
           {/* Right Column: Contact Cards & Quick Book */}
-          <div className='flex-1 flex flex-col gap-6 order-1 xl:order-2'>
+          <div className='flex-1 xl:max-w-[380px] w-full min-w-0 flex flex-col gap-6 order-1 xl:order-2'>
             <ul className='flex flex-col gap-4 w-full'>
               {info.map((item, index) => {
                 const content = (
@@ -351,11 +355,25 @@ const Contact = () => {
               <div className='flex flex-col gap-3'>
                 <Button
                   onClick={handleCopyEmail}
+                  type='button'
                   variant='outline'
-                  className='w-full h-[52px] rounded-xl flex items-center justify-center gap-2.5 border-2 border-accent/40 bg-accent/10 hover:bg-accent hover:text-primary transition-all duration-300 font-semibold text-sm sm:text-base shadow-md shadow-accent/10'
+                  className={`w-full h-[52px] rounded-xl flex items-center justify-center gap-2.5 border-2 transition-all duration-300 font-semibold text-sm sm:text-base select-none ${
+                    copied
+                      ? "border-accent bg-accent text-primary shadow-lg shadow-accent/25"
+                      : "border-accent/40 bg-accent/10 text-white hover:bg-accent hover:text-primary shadow-md shadow-accent/10"
+                  }`}
                 >
-                  {copied ? <FaCheck className='text-accent text-lg' /> : <FaCopy className='text-base' />}
-                  <span>{copied ? "Copied: rakiburrahman307@gmail.com" : "Copy Email Address"}</span>
+                  {copied ? (
+                    <>
+                      <FaCheck className='text-base text-primary' />
+                      <span>Email Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaCopy className='text-base text-accent' />
+                      <span>Copy Email Address</span>
+                    </>
+                  )}
                 </Button>
                 <a
                   href='tel:+8801749183977'
