@@ -1,9 +1,12 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import photo from "../assets/profile/images.png"
+import photo from "../assets/profile/profile.webp";
 
 const Photo = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <div className='w-full h-full relative flex items-center justify-center'>
       <motion.div
@@ -14,7 +17,7 @@ const Photo = () => {
         }}
         className='relative flex items-center justify-center'
       >
-        {/* Profile Image with perfect circular framing and glowing border */}
+        {/* Profile Image with perfect circular framing, neon glow & loading state */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{
@@ -24,14 +27,30 @@ const Photo = () => {
           }}
           className='w-[250px] h-[250px] xl:w-[440px] xl:h-[440px] rounded-full overflow-hidden absolute z-10 border-2 border-accent/40 shadow-[0_0_40px_rgba(0,255,153,0.2)] bg-[#1c1c22]'
         >
+          {/* High-tech Loading Skeleton Spinner */}
+          {!isLoaded && (
+            <div className='absolute inset-0 flex flex-col items-center justify-center bg-[#1c1c22] z-20'>
+              <div className='relative w-14 h-14 flex items-center justify-center'>
+                <div className='absolute inset-0 rounded-full border-2 border-accent/20'></div>
+                <div className='absolute inset-0 rounded-full border-2 border-transparent border-t-accent animate-spin'></div>
+              </div>
+              <span className='text-[10px] uppercase font-mono tracking-widest text-accent mt-3 animate-pulse'>
+                Loading...
+              </span>
+            </div>
+          )}
+
           <Image
             src={photo}
             priority
-            quality={100}
+            quality={95}
             alt='Md. Rakibur Rahman'
             fill
             sizes='(max-width: 1200px) 250px, 440px'
-            className='object-cover object-top'
+            onLoad={() => setIsLoaded(true)}
+            className={`object-cover object-top transition-all duration-700 ease-out ${
+              isLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-sm"
+            }`}
           />
         </motion.div>
 
