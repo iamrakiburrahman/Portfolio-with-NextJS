@@ -91,8 +91,10 @@ export default function RootLayout({ children }) {
           name='twitter:description'
           content='Showcasing the projects and skills of Rakibur Rahman, a web developer specializing in React, Next.js, and modern web technologies.'
         />
-        {/* Favicon */}
-        <link rel='icon' href='/r_logo.png' />
+        {/* Favicons */}
+        <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+        <link rel='alternate icon' href='/favicon.ico' />
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         {/* Manifest */}
         <link rel='manifest' href='/manifest.json' />
         {/* Additional meta tags for browser compatibility */}
