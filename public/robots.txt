@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iamrakiburrahman.netlify.app/sitemap.xml
+

@@ -1,8 +1,11 @@
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import CommandPalette from "@/components/CommandPalette";
+import DeveloperTerminal from "@/components/DeveloperTerminal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,94 +20,124 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = "https://iamrakiburrahman.netlify.app";
+
 export const metadata = {
-  title: "Rakibur Rahman | Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: "Md. Rakibur Rahman | Backend & Full Stack Software Engineer",
   description:
-    "Explore the portfolio of Rakibur Rahman, a passionate web developer skilled in React, Next.js, Tailwind CSS, and more. Discover projects showcasing expertise in creating dynamic, user-friendly, and SEO-optimized websites.",
+    "Explore the portfolio of Md. Rakibur Rahman, a Backend & Full Stack Software Engineer specializing in Node.js, NestJS, TypeScript, PostgreSQL, Prisma, Redis, Docker, and Next.js.",
   keywords: [
+    "Md. Rakibur Rahman",
     "Rakibur Rahman",
-    "Web Developer",
-    "React Developer",
+    "Backend Developer",
+    "Full Stack Engineer",
+    "Node.js Developer",
+    "NestJS Developer",
+    "TypeScript Architect",
+    "PostgreSQL",
+    "Prisma ORM",
+    "Redis",
+    "Docker",
     "Next.js Portfolio",
-    "Frontend Developer",
-    "JavaScript Developer",
-    "Tailwind CSS",
-    "Full Stack Developer",
-    "Portfolio Website",
+    "Software Engineer Bangladesh",
   ],
-  author: "Rakibur Rahman",
+  authors: [{ name: "Md. Rakibur Rahman", url: siteUrl }],
+  creator: "Md. Rakibur Rahman",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
-    title: "Rakibur Rahman | Portfolio",
+    title: "Md. Rakibur Rahman | Backend & Full Stack Software Engineer",
     description:
-      "Showcasing the projects and skills of Rakibur Rahman, a web developer specializing in React, Next.js, and modern web technologies.",
-    url: "https://your-portfolio-url.com", // Replace with your actual URL
+      "Specialized in high-concurrency backend services, clean architecture, REST/GraphQL APIs, relational and NoSQL databases, and modern full-stack web applications.",
+    url: siteUrl,
     type: "website",
     locale: "en_US",
-    siteName: "Rakibur Rahman Portfolio",
+    siteName: "Md. Rakibur Rahman Portfolio",
     images: [
       {
-        url: "https://your-portfolio-url.com/og-image.jpg", // Replace with your actual image URL
+        url: `${siteUrl}/profile.webp`,
         width: 1200,
         height: 630,
-        alt: "Rakibur Rahman Portfolio",
+        alt: "Md. Rakibur Rahman - Backend & Full Stack Software Engineer",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Md. Rakibur Rahman | Backend & Full Stack Software Engineer",
+    description:
+      "Architecting scalable backend microservices, REST/GraphQL APIs, and modern full-stack applications with Node.js, NestJS, PostgreSQL & Redis.",
+    images: [`${siteUrl}/profile.webp`],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
-import Footer from "@/components/Footer";
-
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Md. Rakibur Rahman",
+    url: siteUrl,
+    jobTitle: "Backend & Full Stack Software Engineer",
+    email: "mailto:rakiburrahman307@gmail.com",
+    telephone: "+8801749183977",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Dhaka",
+      addressCountry: "BD",
+    },
+    sameAs: [
+      "https://github.com/iamrakiburrahman",
+      "https://linkedin.com/in/iamrakiburrahman",
+      "https://www.facebook.com/iamrakiburrahman",
+    ],
+    knowsAbout: [
+      "Node.js",
+      "NestJS",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Redis",
+      "Docker",
+      "Next.js",
+      "React",
+      "GraphQL",
+      "RESTful APIs",
+      "Microservices",
+    ],
+  };
+
   return (
     <html lang='en'>
       <head>
         <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta
-          name='description'
-          content='Explore the portfolio of Rakibur Rahman, a passionate web developer skilled in React, Next.js, Tailwind CSS, and more. Discover projects showcasing expertise in creating dynamic, user-friendly, and SEO-optimized websites.'
-        />
-        <meta
-          name='keywords'
-          content='Rakibur Rahman, Web Developer, React Developer, Next.js Portfolio, Frontend Developer, JavaScript Developer, Tailwind CSS, Full Stack Developer, Portfolio Website'
-        />
-        <meta name='author' content='Rakibur Rahman' />
-        {/* Open Graph / Facebook */}
-        <meta property='og:title' content='Rakibur Rahman | Portfolio' />
-        <meta
-          property='og:description'
-          content='Showcasing the projects and skills of Rakibur Rahman, a web developer specializing in React, Next.js, and modern web technologies.'
-        />
-        <meta
-          property='og:image'
-          content='https://rakiburrahman307.netlify.app'
-        />
-        <meta
-          property='og:url'
-          content='https://rakiburrahman307.netlify.app'
-        />
-        <meta property='og:type' content='website' />
-        <meta property='og:site_name' content='Rakibur Rahman Portfolio' />
-        {/* Twitter */}
-        <meta name='twitter:title' content='Rakibur Rahman | Portfolio' />
-        <meta
-          name='twitter:description'
-          content='Showcasing the projects and skills of Rakibur Rahman, a web developer specializing in React, Next.js, and modern web technologies.'
-        />
-        {/* Favicons */}
-        <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
-        <link rel='alternate icon' href='/favicon.ico' />
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        {/* Manifest */}
         <link rel='manifest' href='/manifest.json' />
-        {/* Additional meta tags for browser compatibility */}
         <meta name='theme-color' content='#1c1c22' />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body className={`${inter.variable} ${jetBrainsMono.variable} font-primary min-h-screen flex flex-col justify-between`}>
+      <body
+        className={`${inter.variable} ${jetBrainsMono.variable} font-primary min-h-screen flex flex-col justify-between selection:bg-accent selection:text-primary`}
+      >
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
         <Footer />
+
+        {/* Global Interactive Tools */}
+        <CommandPalette />
+        <DeveloperTerminal />
       </body>
     </html>
   );

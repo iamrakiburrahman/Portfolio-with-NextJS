@@ -32,6 +32,10 @@ const about = {
       fieldValue: "Dhaka, Bangladesh",
     },
     {
+      fieldName: "Portfolio",
+      fieldValue: "iamrakiburrahman.netlify.app",
+    },
+    {
       fieldName: "Availability",
       fieldValue: "Available for Hire",
     },

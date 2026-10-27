@@ -5,9 +5,9 @@ import CountUp from "react-countup";
 const Stats = () => {
   const stats = [
     { num: 2, text: "Years of Experience", suffix: "+" },
-    { num: 12, text: "Projects Completed", suffix: "+" },
-    { num: 15, text: "Technologies Mastered", suffix: "+" },
-    { num: 550, text: "Code Commits", suffix: "+" },
+    { num: 25, text: "Projects Completed", suffix: "+" },
+    { num: 20, text: "Technologies Mastered", suffix: "+" },
+    { num: 5500, text: "Code Commits", suffix: "+" },
   ];
   return (
     <section className='pt-6 pb-12 xl:pt-4 xl:pb-8'>
@@ -30,9 +30,8 @@ const Stats = () => {
                 </span>
               </div>
               <p
-                className={`${
-                  stat?.text.length < 15 ? "max-w-[100px]" : "max-w-[140px]"
-                } leading-snug text-white/80 text-sm xl:text-base font-medium`}
+                className={`${stat?.text.length < 15 ? "max-w-[100px]" : "max-w-[140px]"
+                  } leading-snug text-white/80 text-sm xl:text-base font-medium`}
               >
                 {stat?.text}
               </p>
