@@ -11,6 +11,7 @@ import { Button } from "./ui/button";
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
+
   const links = [
     { name: "home", path: "/" },
     { name: "services", path: "/services" },
@@ -32,13 +33,16 @@ const MobileNav = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className='flex justify-center items-center' aria-label='Open navigation menu'>
-        <CiMenuFries className='text-[32px] text-accent' />
+        <CiMenuFries className='text-[28px] text-accent' />
       </SheetTrigger>
-      <SheetContent className='flex flex-col justify-between py-12'>
+      <SheetContent className='flex flex-col justify-between py-12 bg-[#141418] border-white/10'>
         <div>
-          <div className='mt-12 mb-12 text-center text-2xl'>
-            <Link href='/' onClick={() => setIsOpen(false)}>
-              <h1 className='text-4xl font-extrabold'>
+          <div className='mt-8 mb-8 text-center text-2xl'>
+            <Link
+              href='/'
+              onClick={() => setIsOpen(false)}
+            >
+              <h1 className='text-3xl font-extrabold text-white'>
                 Rakibur<span className='text-accent'>.</span>
               </h1>
             </Link>
@@ -51,40 +55,43 @@ const MobileNav = () => {
               className='flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-white/80'
             >
               <FiSearch className='text-accent' />
-              <span>Search</span>
+              <span>Cmd+K</span>
             </button>
             <button
               onClick={handleOpenTerminal}
               className='flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-white/80'
             >
               <FiTerminal className='text-accent' />
-              <span>CLI Terminal</span>
+              <span>CLI</span>
             </button>
           </div>
 
-          {/* nav section start here  */}
-          <nav className='flex flex-col justify-center items-center gap-6'>
-            {links?.map((link, idx) => {
+          {/* Nav links */}
+          <nav className='flex flex-col justify-center items-center gap-5'>
+            {links.map((link, idx) => {
+              const isActive = link.path === pathName;
               return (
                 <Link
-                  href={link?.path}
+                  href={link.path}
                   key={idx}
                   onClick={() => setIsOpen(false)}
                   className={`${
-                    link?.path === pathName &&
-                    "text-accent border-b-2 border-accent"
-                  } text-xl capitalize font-medium hover:text-accent transition-all`}
+                    isActive ? "text-accent border-b-2 border-accent" : "text-white/80"
+                  } text-lg capitalize font-medium hover:text-accent transition-all`}
                 >
-                  {link?.name}
+                  {link.name}
                 </Link>
               );
             })}
           </nav>
         </div>
 
-        <div className='flex flex-col gap-3 justify-center'>
-          <Link href='/contact' onClick={() => setIsOpen(false)}>
-            <Button className='w-full h-[52px] text-base font-bold rounded-xl shadow-lg shadow-accent/20'>
+        <div className='flex flex-col gap-3 justify-center pt-6 border-t border-white/10'>
+          <Link
+            href='/contact'
+            onClick={() => setIsOpen(false)}
+          >
+            <Button className='w-full h-[46px] text-sm font-bold rounded-xl shadow-lg shadow-accent/20'>
               Hire Me
             </Button>
           </Link>

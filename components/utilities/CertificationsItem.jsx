@@ -1,6 +1,8 @@
+"use client";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { FaAward, FaCheckCircle, FaCode } from "react-icons/fa";
-import { SiLeetcode, SiHackerrank } from "react-icons/si";
+import { FaAward } from "react-icons/fa";
+import GsapTiltCard from "../gsap/GsapTiltCard";
 
 const credentials = {
   title: "Problem Solving & Certifications",
@@ -57,45 +59,45 @@ const CertificationsItem = () => (
     {/* Metric highlights */}
     <div className='grid grid-cols-1 sm:grid-cols-3 gap-3'>
       {credentials.highlights.map((h, i) => (
-        <div
-          key={i}
-          className='p-3.5 rounded-xl bg-[#232329]/60 border border-white/5 flex flex-col items-center xl:items-start'
-        >
-          <div className='text-accent font-bold text-sm sm:text-base flex items-center gap-1.5'>
-            <FaAward className='text-accent' />
-            <span>{h.title}</span>
+        <GsapTiltCard key={i} maxTilt={10} className='rounded-xl'>
+          <div className='p-3.5 rounded-xl bg-[#232329]/60 border border-white/5 flex flex-col items-center xl:items-start h-full'>
+            <div className='text-accent font-bold text-sm sm:text-base flex items-center gap-1.5'>
+              <FaAward className='text-accent' />
+              <span>{h.title}</span>
+            </div>
+            <span className='text-white/50 text-xs mt-0.5'>{h.subtitle}</span>
           </div>
-          <span className='text-white/50 text-xs mt-0.5'>{h.subtitle}</span>
-        </div>
+        </GsapTiltCard>
       ))}
     </div>
 
     <ScrollArea className='h-[360px]'>
       <ul className='grid grid-cols-1 lg:grid-cols-2 gap-4 pr-4'>
         {credentials.items.map((item, index) => (
-          <li
-            key={index}
-            className='bg-[#232329] p-5 rounded-xl flex flex-col justify-between gap-3 border border-white/5 hover:border-accent/40 transition-all duration-300'
-          >
-            <div>
-              <div className='flex items-center justify-between gap-2 mb-1'>
-                <span className='text-accent font-mono text-xs font-semibold'>
-                  {item.year}
-                </span>
-                <span className='px-2.5 py-0.5 rounded-full bg-accent/10 text-accent font-mono text-[11px] border border-accent/20'>
-                  {item.badge}
-                </span>
+          <li key={index}>
+            <GsapTiltCard maxTilt={6} className='rounded-xl h-full'>
+              <div className='bg-[#232329] p-5 rounded-xl flex flex-col justify-between gap-3 border border-white/5 hover:border-accent/40 transition-colors duration-300 h-full'>
+                <div>
+                  <div className='flex items-center justify-between gap-2 mb-1'>
+                    <span className='text-accent font-mono text-xs font-semibold'>
+                      {item.year}
+                    </span>
+                    <span className='px-2.5 py-0.5 rounded-full bg-accent/10 text-accent font-mono text-[11px] border border-accent/20'>
+                      {item.badge}
+                    </span>
+                  </div>
+                  <h3 className='text-base font-bold text-white text-left mt-1'>
+                    {item.title}
+                  </h3>
+                  <p className='text-white/50 text-xs text-left mt-0.5'>
+                    {item.issuer}
+                  </p>
+                </div>
+                <p className='text-white/70 text-xs text-left leading-relaxed border-t border-white/5 pt-2'>
+                  {item.details}
+                </p>
               </div>
-              <h3 className='text-base font-bold text-white text-left mt-1'>
-                {item.title}
-              </h3>
-              <p className='text-white/50 text-xs text-left mt-0.5'>
-                {item.issuer}
-              </p>
-            </div>
-            <p className='text-white/70 text-xs text-left leading-relaxed border-t border-white/5 pt-2'>
-              {item.details}
-            </p>
+            </GsapTiltCard>
           </li>
         ))}
       </ul>
@@ -104,4 +106,3 @@ const CertificationsItem = () => (
 );
 
 export default CertificationsItem;
-

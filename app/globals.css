@@ -78,3 +78,22 @@
     background: #00ff99;
     box-shadow: 0 0 8px rgba(0, 255, 153, 0.6);
 }
+
+/* ==========================================================================
+   Lenis Smooth Scrolling Core
+   ========================================================================== */
+html.lenis, html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}

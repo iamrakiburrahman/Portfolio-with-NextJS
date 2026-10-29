@@ -81,16 +81,16 @@
   <!-- Metric Badges Bottom -->
   <g transform="translate(60, 400)">
     <rect x="0" y="0" width="140" height="40" rx="6" fill="#232329" stroke="#00ff99" stroke-opacity="0.4" />
-    <text x="70" y="25" fill="#00ff99" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">⚡ 1,500+ Req/s</text>
+    <text x="70" y="25" fill="#00ff99" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">1,500+ Req/s</text>
 
     <rect x="160" y="0" width="140" height="40" rx="6" fill="#232329" stroke="#ffffff" stroke-opacity="0.1" />
-    <text x="230" y="25" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">⏱️ 38ms Latency</text>
+    <text x="230" y="25" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">38ms Latency</text>
 
     <rect x="320" y="0" width="150" height="40" rx="6" fill="#232329" stroke="#ffffff" stroke-opacity="0.1" />
-    <text x="395" y="25" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">🔒 JWT + RBAC</text>
+    <text x="395" y="25" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">JWT + RBAC</text>
 
     <rect x="490" y="0" width="170" height="40" rx="6" fill="#232329" stroke="#00ff99" stroke-opacity="0.4" />
-    <text x="575" y="25" fill="#00ff99" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">🐳 Docker Ready</text>
+    <text x="575" y="25" fill="#00ff99" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">Docker Containerized</text>
   </g>
 </svg>
 

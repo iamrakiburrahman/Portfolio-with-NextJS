@@ -6,6 +6,9 @@ import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import CommandPalette from "@/components/CommandPalette";
 import DeveloperTerminal from "@/components/DeveloperTerminal";
+import GsapCursor from "@/components/gsap/GsapCursor";
+import GsapBackground from "@/components/gsap/GsapBackground";
+import SmoothScrollProvider from "@/components/gsap/SmoothScrollProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -128,16 +131,24 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${inter.variable} ${jetBrainsMono.variable} font-primary min-h-screen flex flex-col justify-between selection:bg-accent selection:text-primary`}
+        className={`${inter.variable} ${jetBrainsMono.variable} font-primary min-h-screen flex flex-col justify-between selection:bg-accent selection:text-primary relative overflow-x-hidden`}
       >
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
+        <SmoothScrollProvider>
+          {/* GSAP Ambient Background & Spotlight Cursor */}
+          <GsapBackground />
+          <GsapCursor />
 
-        {/* Global Interactive Tools */}
-        <CommandPalette />
-        <DeveloperTerminal />
+          <div className='relative z-10 flex flex-col min-h-screen justify-between'>
+            <Header />
+            <StairTransition />
+            <PageTransition>{children}</PageTransition>
+            <Footer />
+
+            {/* Global Interactive Tools */}
+            <CommandPalette />
+            <DeveloperTerminal />
+          </div>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

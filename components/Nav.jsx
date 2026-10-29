@@ -27,18 +27,20 @@ const Nav = () => {
       path: "/contact",
     },
   ];
+
   return (
     <nav className='flex gap-8'>
-      {links?.map((link, idx) => {
+      {links.map((link, idx) => {
+        const isActive = link.path === pathName;
         return (
           <Link
-            href={link?.path}
+            href={link.path}
             key={idx}
             className={`${
-              link?.path === pathName && "text-accent border-b-2 border-accent"
-            } capitalize font-medium hover:text-accent transition-all`}
+              isActive ? "text-accent border-b-2 border-accent" : "text-white/80"
+            } capitalize font-medium hover:text-accent transition-all text-sm xl:text-base pb-0.5`}
           >
-            {link?.name}
+            {link.name}
           </Link>
         );
       })}

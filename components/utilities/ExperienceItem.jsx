@@ -1,4 +1,8 @@
+"use client";
+
 import { ScrollArea } from "@/components/ui/scroll-area";
+import GsapTiltCard from "../gsap/GsapTiltCard";
+
 const experiences = {
   icon: "/assets/resume/badge.svg",
   title: "My Experience",
@@ -56,19 +60,20 @@ const ExperienceItem = () => (
     <ScrollArea className='h-[400px]'>
       <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px] pr-4'>
         {experiences?.items?.map((item, index) => (
-          <li
-            key={index}
-            className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 border border-white/5 hover:border-accent/40 transition-all duration-300'
-          >
-            <span className='text-accent font-mono'>{item?.year}</span>
-            <h3 className='text-xl font-semibold max-w-[260px] min-h-[60px] text-center lg:text-left'>
-              {item?.role}
-            </h3>
+          <li key={index}>
+            <GsapTiltCard maxTilt={8} className='rounded-xl h-full'>
+              <div className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 border border-white/5 hover:border-accent/40 transition-colors duration-300'>
+                <span className='text-accent font-mono'>{item?.year}</span>
+                <h3 className='text-xl font-semibold max-w-[260px] min-h-[60px] text-center lg:text-left'>
+                  {item?.role}
+                </h3>
 
-            <div className='flex items-center gap-3'>
-              <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-              <p className='text-white/60 text-sm'>{item?.projectName}</p>
-            </div>
+                <div className='flex items-center gap-3'>
+                  <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
+                  <p className='text-white/60 text-sm'>{item?.projectName}</p>
+                </div>
+              </div>
+            </GsapTiltCard>
           </li>
         ))}
       </ul>

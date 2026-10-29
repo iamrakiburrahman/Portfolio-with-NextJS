@@ -24,6 +24,8 @@ import {
   SelectItem,
   SelectLabel,
 } from "@/components/ui/select";
+import Magnetic from "@/components/gsap/Magnetic";
+import GsapTiltCard from "@/components/gsap/GsapTiltCard";
 
 const emailAddress = "rakiburrahman307@gmail.com";
 const phoneNumber = "(+880) 1749183977";
@@ -284,15 +286,17 @@ const Contact = () => {
                   />
 
                   <div className='flex flex-wrap items-center justify-between gap-4'>
-                    <Button
-                      type='submit'
-                      size='lg'
-                      className='flex items-center gap-2 bg-accent text-primary font-bold hover:bg-accent-hover'
-                      disabled={isSubmitting}
-                    >
-                      <FaPaperPlane className='text-sm' />
-                      <span>{isSubmitting ? "Dispatching..." : "Send Message"}</span>
-                    </Button>
+                    <Magnetic strength={0.3}>
+                      <Button
+                        type='submit'
+                        size='lg'
+                        className='flex items-center gap-2 bg-accent text-primary font-bold hover:bg-accent-hover'
+                        disabled={isSubmitting}
+                      >
+                        <FaPaperPlane className='text-sm' />
+                        <span>{isSubmitting ? "Dispatching..." : "Send Message"}</span>
+                      </Button>
+                    </Magnetic>
 
                     <a
                       href={mailtoLink}
@@ -344,46 +348,48 @@ const Contact = () => {
             </ul>
 
             {/* Quick Actions Card */}
-            <div className='p-6 rounded-2xl bg-[#232329]/50 border border-accent/20 flex flex-col gap-4'>
-              <div className='flex items-center gap-2 text-accent font-semibold text-sm'>
-                <FaCalendarAlt />
-                <span>Quick Connect Options</span>
+            <GsapTiltCard maxTilt={5} className='rounded-2xl'>
+              <div className='p-6 rounded-2xl bg-[#232329]/50 border border-accent/20 flex flex-col gap-4'>
+                <div className='flex items-center gap-2 text-accent font-semibold text-sm'>
+                  <FaCalendarAlt />
+                  <span>Quick Connect Options</span>
+                </div>
+                <p className='text-white/70 text-xs sm:text-sm leading-relaxed'>
+                  Fast-track discussions for freelance projects, technical consults, or full-time recruitment.
+                </p>
+                <div className='flex flex-col gap-3'>
+                  <Button
+                    onClick={handleCopyEmail}
+                    type='button'
+                    variant='outline'
+                    className={`w-full h-[52px] rounded-xl flex items-center justify-center gap-2.5 border-2 transition-all duration-300 font-semibold text-sm sm:text-base select-none ${
+                      copied
+                        ? "border-accent bg-accent text-primary shadow-lg shadow-accent/25"
+                        : "border-accent/40 bg-accent/10 text-white hover:bg-accent hover:text-primary shadow-md shadow-accent/10"
+                    }`}
+                  >
+                    {copied ? (
+                      <>
+                        <FaCheck className='text-base text-primary' />
+                        <span>Email Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaCopy className='text-base text-accent' />
+                        <span>Copy Email Address</span>
+                      </>
+                    )}
+                  </Button>
+                  <a
+                    href='tel:+8801749183977'
+                    className='w-full h-[50px] rounded-xl bg-white/5 border border-white/10 hover:border-accent hover:text-accent flex items-center justify-center gap-2.5 text-sm font-semibold text-white/90 transition-all duration-300'
+                  >
+                    <FaPhoneAlt className='text-accent text-sm' />
+                    <span>Direct Call: (+880) 1749183977</span>
+                  </a>
+                </div>
               </div>
-              <p className='text-white/70 text-xs sm:text-sm leading-relaxed'>
-                Fast-track discussions for freelance projects, technical consults, or full-time recruitment.
-              </p>
-              <div className='flex flex-col gap-3'>
-                <Button
-                  onClick={handleCopyEmail}
-                  type='button'
-                  variant='outline'
-                  className={`w-full h-[52px] rounded-xl flex items-center justify-center gap-2.5 border-2 transition-all duration-300 font-semibold text-sm sm:text-base select-none ${
-                    copied
-                      ? "border-accent bg-accent text-primary shadow-lg shadow-accent/25"
-                      : "border-accent/40 bg-accent/10 text-white hover:bg-accent hover:text-primary shadow-md shadow-accent/10"
-                  }`}
-                >
-                  {copied ? (
-                    <>
-                      <FaCheck className='text-base text-primary' />
-                      <span>Email Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <FaCopy className='text-base text-accent' />
-                      <span>Copy Email Address</span>
-                    </>
-                  )}
-                </Button>
-                <a
-                  href='tel:+8801749183977'
-                  className='w-full h-[50px] rounded-xl bg-white/5 border border-white/10 hover:border-accent hover:text-accent flex items-center justify-center gap-2.5 text-sm font-semibold text-white/90 transition-all duration-300'
-                >
-                  <FaPhoneAlt className='text-accent text-sm' />
-                  <span>Direct Call: (+880) 1749183977</span>
-                </a>
-              </div>
-            </div>
+            </GsapTiltCard>
           </div>
         </div>
       </div>
